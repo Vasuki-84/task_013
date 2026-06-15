@@ -51,7 +51,7 @@ function PatientCard({
       <ul>
         {diseases.map((disease, index) => (
           <li key={index}>
-            {disease}
+            {disease.trim()}
           </li>
         ))}
       </ul>

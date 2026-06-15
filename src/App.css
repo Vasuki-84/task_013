@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.patient-form {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.patient-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.patient-form input[type="text"],
+.patient-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.patient-form button {
+  width: 100%;
+  padding: 12px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.patient-form button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .patient-form {
+    padding: 18px;
+  }
+
+  .patient-form h2 {
+    font-size: 22px;
+  }
+}
