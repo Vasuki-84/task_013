@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './PatientCard.css';
 
 function PatientCard({
   name,
@@ -9,22 +10,41 @@ function PatientCard({
   showPatient
 }) {
 
-  const [admitted, setAdmitted] =  useState(isAdmitted);
+  const [admitted, setAdmitted] =
+    useState(isAdmitted);
 
-  const toggleStatus = () => {    setAdmitted(prev => !prev);  };
+  const toggleStatus = () => {
+    setAdmitted(prev => !prev);
+  };
 
   return (
-    <div>
-      <p>------------------------------------------------</p>
+    <div className="patient-card">
+
       <h2>Patient Card</h2>
-      <p>------------------------------------------------</p>
-      <p>Name: {name}</p>      
-      <p>Age: {age}</p>      
-      <p style={ { color: admitted ? 'green' : 'red' } }>
-        Status:
-        {admitted ? ' Admitted' : ' Discharged'}
+
+      <p>
+        <strong>Name:</strong> {name}
       </p>
-      <p>Doctor: {doctor.name}</p>
+
+      <p>
+        <strong>Age:</strong> {age}
+      </p>
+
+      <p
+        style={{
+          color: admitted ? 'green' : 'red',
+          fontWeight: 'bold'
+        }}
+      >
+        Status:
+        {admitted
+          ? ' Admitted'
+          : ' Discharged'}
+      </p>
+
+      <p>
+        <strong>Doctor:</strong> {doctor.name}
+      </p>
 
       <h4>Diseases</h4>
 
@@ -36,14 +56,29 @@ function PatientCard({
         ))}
       </ul>
 
-      <button onClick={() => showPatient(name,isAdmitted)}>
-        Show Details
-      </button>
+      <div className="button-group">
 
-      <button
-        onClick={toggleStatus}>
-        Change Status
-      </button>
+        <button
+          className="show-btn"
+          onClick={() =>
+            showPatient(
+              name,
+              admitted
+            )
+          }
+        >
+          Show Details
+        </button>
+
+        <button
+          className="status-btn"
+          onClick={toggleStatus}
+        >
+          Change Status
+        </button>
+
+      </div>
+
     </div>
   );
 }
