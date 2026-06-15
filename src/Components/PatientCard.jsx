@@ -10,8 +10,7 @@ function PatientCard({
   showPatient
 }) {
 
-  const [admitted, setAdmitted] =
-    useState(isAdmitted);
+  const [admitted, setAdmitted] = useState(isAdmitted);
 
   const toggleStatus = () => {
     setAdmitted(prev => !prev);

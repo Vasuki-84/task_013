@@ -27,6 +27,14 @@ function App() {
         name: formData.doctorName
       }
     });
+     // Form Reset
+      setFormData({
+          name: '',
+          age: '',
+          doctorName: '',
+          diseases: '',
+          isAdmitted: false
+    });
   };
 
   const showPatient = (name, status) => {
