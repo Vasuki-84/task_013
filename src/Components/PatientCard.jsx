@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
-import './PatientCard.css';
+import { useState } from "react";
+import "./PatientCard.css";
 
-function PatientCard({
-  name,
-  age,
-  isAdmitted,
-  diseases,
-  doctor,
-  showPatient
-}) {
-
+function PatientCard({ name, age, isAdmitted, diseases, doctor, showPatient }) {
   const [admitted, setAdmitted] = useState(isAdmitted);
 
   const toggleStatus = () => {
-    setAdmitted(prev => !prev);
+    setAdmitted((prev) => !prev);
   };
 
   return (
     <div className="patient-card">
-
       <h2>Patient Card</h2>
 
       <p>
@@ -31,14 +22,12 @@ function PatientCard({
 
       <p
         style={{
-          color: admitted ? 'green' : 'red',
-          fontWeight: 'bold'
+          color: admitted ? "green" : "red",
+          fontWeight: "bold",
         }}
       >
         Status:
-        {admitted
-          ? ' Admitted'
-          : ' Discharged'}
+        {admitted ? " Admitted" : " Discharged"}
       </p>
 
       <p>
@@ -49,35 +38,22 @@ function PatientCard({
 
       <ul>
         {diseases.map((disease, index) => (
-          <li key={index}>
-            {disease.trim()}
-          </li>
+          <li key={index}>{disease.trim()}</li>
         ))}
       </ul>
 
       <div className="button-group">
-
         <button
           className="show-btn"
-          onClick={() =>
-            showPatient(
-              name,
-              admitted
-            )
-          }
+          onClick={() => showPatient(name, admitted)}
         >
           Show Details
         </button>
 
-        <button
-          className="status-btn"
-          onClick={toggleStatus}
-        >
+        <button className="status-btn" onClick={toggleStatus}>
           Change Status
         </button>
-
       </div>
-
     </div>
   );
 }

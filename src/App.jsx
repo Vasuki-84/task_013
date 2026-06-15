@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import './App.css';
-import PatientCard from './Components/PatientCard';
+import { useState } from "react";
+import "./App.css";
+import PatientCard from "./Components/PatientCard";
 
 function App() {
-
   const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    doctorName: '',
-    diseases: '',
-    isAdmitted: false
+    name: "",
+    age: "",
+    doctorName: "",
+    diseases: "",
+    isAdmitted: false,
   });
 
   const [patient, setPatient] = useState(null);
@@ -21,36 +20,32 @@ function App() {
       name: formData.name,
       age: Number(formData.age),
       isAdmitted: formData.isAdmitted,
-      diseases: formData.diseases.split(','),
+      diseases: formData.diseases.split(","),
       doctor: {
         id: 1,
-        name: formData.doctorName
-      }
+        name: formData.doctorName,
+      },
     });
-     // Form Reset
-      setFormData({
-          name: '',
-          age: '',
-          doctorName: '',
-          diseases: '',
-          isAdmitted: false
+    // Form Reset
+    setFormData({
+      name: "",
+      age: "",
+      doctorName: "",
+      diseases: "",
+      isAdmitted: false,
     });
   };
 
   const showPatient = (name, status) => {
     alert(
       `Patient: ${name}
-Status: ${status ? 'Admitted' : 'Discharged'}`
+Status: ${status ? "Admitted" : "Discharged"}`,
     );
   };
 
   return (
     <div className="container">
-
-      <form
-        className="patient-form"
-        onSubmit={handleSubmit}
-      >
+      <form className="patient-form" onSubmit={handleSubmit}>
         <h2>Patient Registration</h2>
 
         <input
@@ -60,7 +55,7 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
           onChange={(e) =>
             setFormData({
               ...formData,
-              name: e.target.value
+              name: e.target.value,
             })
           }
         />
@@ -72,7 +67,7 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
           onChange={(e) =>
             setFormData({
               ...formData,
-              age: e.target.value
+              age: e.target.value,
             })
           }
         />
@@ -84,7 +79,7 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
           onChange={(e) =>
             setFormData({
               ...formData,
-              doctorName: e.target.value
+              doctorName: e.target.value,
             })
           }
         />
@@ -96,7 +91,7 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
           onChange={(e) =>
             setFormData({
               ...formData,
-              diseases: e.target.value
+              diseases: e.target.value,
             })
           }
         />
@@ -108,16 +103,14 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
             onChange={(e) =>
               setFormData({
                 ...formData,
-                isAdmitted: e.target.checked
+                isAdmitted: e.target.checked,
               })
             }
           />
           Admitted
         </label>
 
-        <button type="submit">
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
 
       {patient && (
@@ -130,7 +123,6 @@ Status: ${status ? 'Admitted' : 'Discharged'}`
           showPatient={showPatient}
         />
       )}
-
     </div>
   );
 }
